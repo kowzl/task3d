@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <title>FormOne VA Time Tracker</title>
+  </head>
+  <body>
+    <main id="app-shell">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark">F</div>
+          <div>
+            <p class="eyebrow">Operations / HQ</p>
+            <h1>FormOne VA Time Tracker</h1>
+          </div>
+        </div>
+
+        <section class="intro-block">
+          <p id="workspace-eyebrow" class="eyebrow accent">Manager workspace</p>
+          <h2 id="workspace-title">Track the workday.</h2>
+          <p id="workspace-description" class="muted">Employees clock in when they arrive. The floor updates automatically while every session is logged.</p>
+        </section>
+
+        <section id="user-panel" class="user-panel" hidden>
+          <div class="section-heading"><span>My time</span><span class="shortcut">USER FOLDER</span></div>
+          <label>
+            Employee
+            <select id="user-owner" aria-label="Choose employee"></select>
+          </label>
+          <button id="time-toggle" class="primary-button time-button" type="button">Clock in</button>
+          <div id="user-time-summary" class="time-summary"></div>
+          <div id="user-task-list" class="compact-task-list"></div>
+        </section>
+
+        <section id="manager-panel">
+        <div class="manager-lookup">
+          <div class="section-heading"><span>Attendance view</span><span class="shortcut">MANAGER FOLDER</span></div>
+          <label>
+            View time for
+            <select id="manager-owner" aria-label="View employee assignments"></select>
+          </label>
+          <div id="manager-task-list" class="compact-task-list"></div>
+        </div>
+        </section>
+
+        <div class="sidebar-footer">
+          <div class="live-dot"></div>
+          <span>Leadership feed synced</span>
+          <span class="footer-time">09:41</span>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="floor-eyebrow" class="eyebrow">Main floor / Monday, 28 October</p>
+            <div class="title-row">
+              <h2 id="floor-title">Live office</h2>
+              <span id="room-count" class="count-badge">0 rooms</span>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <button id="reset-view" class="icon-button" title="Reset camera view" aria-label="Reset camera view">↻</button>
+            <div class="avatar-stack" aria-label="Active employees">
+              <span class="avatar avatar-blue">MC</span>
+              <span class="avatar avatar-coral">EB</span>
+              <span class="avatar avatar-green">NS</span>
+              <span class="avatar avatar-more">+2</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="floor-wrap">
+          <div id="scene-container" class="scene-container" aria-label="3D office floor plan"></div>
+          <div class="scene-overlay overlay-top-left">
+            <span class="status-pip"></span>
+            <span id="scene-status">Waiting for clock-ins</span>
+          </div>
+          <div class="scene-overlay scene-legend">
+            <span><i class="legend-swatch room-swatch"></i> active room</span>
+            <span><i class="legend-swatch desk-swatch"></i> employee desk</span>
+          </div>
+          <div class="scene-overlay rotate-hint"><span class="rotate-icon">↻</span> drag to rotate</div>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">⌂</div>
+            <p class="eyebrow">The floor is clear</p>
+            <h3>No one is clocked in</h3>
+            <p>Clock in to leave the waiting room and open your live office space.</p>
+          </div>
+        </div>
+
+        <section id="task-strip" class="task-strip">
+          <div class="task-strip-heading">
+            <div>
+              <p class="eyebrow">Attendance log</p>
+              <h3>Today's sessions</h3>
+            </div>
+            <span id="task-summary" class="muted">No active assignments</span>
+          </div>
+          <div id="task-list" class="task-list"></div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
